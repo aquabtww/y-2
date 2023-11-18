@@ -6,6 +6,9 @@ from PyQt5.QtCore import Qt
 import sys
 
 
+COLORS = [Qt.white, Qt.black, Qt.blue, Qt.red, Qt.yellow, Qt.green, Qt.darkRed, Qt.darkCyan, Qt.cyan, Qt.magenta]
+
+
 class MyWidget(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
@@ -18,7 +21,9 @@ class MyWidget(QtWidgets.QWidget):
 
     def paintEvent(self, event):
         painter = QPainter(self)
-        pen = QPen(Qt.yellow, 3, Qt.SolidLine)
+
+        color = random.choice(COLORS)
+        pen = QPen(color, 3, Qt.SolidLine)
         painter.setPen(pen)
 
         diameter = random.randint(50, 350)
